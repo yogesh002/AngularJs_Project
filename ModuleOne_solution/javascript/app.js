@@ -22,11 +22,11 @@
     function processInputData(input) {
         var newInput = []; //This array will hold processed data
         for (var i = 0; i < input.length; i++) {
-            if (!input[i]) { //If no item specified, simply check for another item if present
+            var result = input[i].trim(); //Do not consider Empty Item i.e , ,
+            if (!result) { //If no item specified, simply check for another item if present
                 continue;
             }
-            var result = input[i].trim(); //Do not consider Empty Item i.e , ,
-            newInput[i] = result; //Store the processed data in the new array
+            newInput.push(result); //Store the processed data in the new array
         }
         return newInput;
     }
