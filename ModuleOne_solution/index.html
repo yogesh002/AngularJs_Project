@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app="LunchCheck">
+
+<head>
+    <title>Lunch Checker</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 1: Lunch Checker">
+    <meta name="keywords" content="HTML, AngularJs, CSS, Bootstrap">
+    <meta name="author" content="Yogesh Ghimire">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="javascript/app.js"></script>
+</head>
+
+<body class="container">
+    <header>
+        <h1 id="title">Lunch Checker</h1> </header>
+    <section ng-controller="LunchCheckController" class="section">
+        <div class="form-group inputGroup">
+            <input type="text" class="form-control lunchCheckerInputBox" placeholder="List dishes separated by commas" id="dishNameInputBox" ng-model="userInput" />
+            <div class="inputValidation_btn">
+                <input type="button" class="btn btn-default" value="Check if Too Much" id="validateNbrOfDishBtn" ng-click="validateUserInput();"> </div>
+            <p id="message"> {{message}} </p>
+        </div>
+    </section>
+</body>
+
+</html>
