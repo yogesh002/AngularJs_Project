@@ -1,7 +1,7 @@
 # AngularJs - Assignment 1: Lunch-Checker
 <hr>
 <h1>Application Demo : </h1>
-https://yogesh002.github.io/AngularJs_Project/
+https://yogesh002.github.io/AngularJs_Project/ModuleOne_solution/
 
 <pre>
 As a part of this project, we are supposed to build an application that contains:
