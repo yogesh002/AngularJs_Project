@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app="ShoppingListCheckOff" class="container">
+
+<head>
+    <title>Lunch Checker</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 2: ShoppingList CheckOff">
+    <meta name="keywords" content="HTML, AngularJs, CSS, Bootstrap">
+    <meta name="author" content="Yogesh Ghimire">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="javascript/app.js"></script>
+</head>
+
+<body class="row">
+    <h1 id="title">Check-off Shopping List Application</h1>
+    <div ng-controller="ToBuyController as buy" id="toBuyController" class="col-md-6">
+        <h1><strong>To Buy</strong></h1>
+        <div ng-repeat="item in buy.buyItemCollection" class="row groupItem">
+            <div class="col-md-6">Buy {{item.quantity}} {{item.name}}</div>
+            <div class="col-md-6">
+                <input type="button" value="Bought" ng-click="buy.buyItem($index);" class="btn btn-primary"> </div>
+        </div>
+        <div ng-show="buy.errorMessage != null" class="errorMsg">{{buy.errorMessage}}</div>
+    </div>
+    <div ng-controller="AlreadyBoughtController as bought" id="alreadyBoughtController" class="col-md-6">
+        <h1><strong>Already Bought</strong></h1>
+        <div ng-if="bought.boughtItems.length > 0">
+            <div ng-repeat="item in bought.boughtItems" class="row groupItem"> Bought {{item.quantity}} {{item.name}} </div>
+        </div>
+        <div ng-show="bought.boughtItems === undefined || bought.boughtItems.length ===0" class="errorMsg"> Nothing bought yet! </div>
+    </div>
+</body>
+
+</html>
