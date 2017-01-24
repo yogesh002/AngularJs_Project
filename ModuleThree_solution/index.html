@@ -19,8 +19,9 @@
     <input type="text" placeholder="Enter item" ng-model="searchController.itemSearch">
     <input type="button" class="btn btn_primary" value="Narrow It Down For me!" ng-click="searchController.narrowItDown(searchController.itemSearch);">
     <div>
-        <found-items search-controller="searchController"></found-items>
+        <found-items found="searchController.found" remove-item="searchController.removeItem(index)"></found-items>
     </div>
+    <div> {{searchController.errorMessage}} </div>
 </body>
 
 </html>

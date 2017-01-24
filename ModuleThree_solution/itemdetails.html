@@ -7,9 +7,6 @@
         <td>{{item.name}}</td>
         <td>{{item.description}}</td>
         <td>
-            <input type="button" value="Don't want this one!" ng-click="controller.removeItem($index);"> </td>
+            <input type="button" value="Don't want this one!" ng-click="controller.removeItem({index:$index})"> </td>
     </tr>
 </table>
-<div>
-    <error-directive></error-directive>
-</div>

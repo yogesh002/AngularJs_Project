@@ -3,26 +3,38 @@
  *Assignment 3 as a part of Single Page Web Applications with AngularJS 
  */
 (function () {
-    angular.module("NarrowItDownApp", []).controller("NarrowItDownController", NarrowItDownControllerFunction).service("MenuSearchService", MenuSearchService).constant("BaseUrl", "https://davids-restaurant.herokuapp.com/menu_items.json").directive("foundItems", foundItemDirectiveFunction).directive("errorDirective", errorDirectiveFunction);
+    angular.module("NarrowItDownApp", [])
+        .controller("NarrowItDownController", NarrowItDownControllerFunction)
+        .service("MenuSearchService", MenuSearchService)
+        .constant("BaseUrl", "https://davids-restaurant.herokuapp.com/menu_items.json")
+        .directive("foundItems", foundItemDirectiveFunction);
 
-    function errorDirectiveFunction() {
-        var ddo = {
-            template: "{{controller.errorMessage}}"
-        }
-        return ddo;
-    }
-
+    //directive
     function foundItemDirectiveFunction() {
         var ddo = {
-            scope: {
-                controller: "=searchController"
+            templateUrl: "itemdetails.html"
+            , scope: {
+                found: "<"
+                , removeItem: "&"
             }
-            , templateUrl: "itemdetails.html"
+            , controller: searchDirectiveController
+            , controllerAs: "controller"
+            , bindToController: true
         }
         return ddo;
     }
-    NarrowItDownControllerFunction.$inject = ["MenuSearchService"];
 
+    //Directive controller
+    function searchDirectiveController() {
+        var controller = this;
+        //logic for controller that we define for directive defined in itemdetails.html goes here...........
+        //....................
+        //.......
+    }
+
+    //Injecting service into the controller
+    NarrowItDownControllerFunction.$inject = ["MenuSearchService"];
+    //controller
     function NarrowItDownControllerFunction(MenuSearchService) {
         var controller = this;
         var service = MenuSearchService;
@@ -39,11 +51,11 @@
                     if (result != null) {
                         var response = result.menu_items;
                         var found = service.checkInputMatchServerResponse(input, response);
-                        if(found.length > 0){
+                        if (found.length > 0) {
                             controller.found = found;
                         }
-                        else{
-                             controller.errorMessage = "Nothing found";
+                        else {
+                            controller.errorMessage = "Nothing found";
                         }
                     }
                     else {
@@ -54,9 +66,13 @@
                 });
             }
         }
+        controller.removeItem = function (index) {
+            return controller.found.splice(index, 1);
+        }
     }
-    MenuSearchService.$inject = ["$http", "BaseUrl"];
-
+    
+    MenuSearchService.$inject = ["$http", "BaseUrl"]; //injecting $http service and our constant BaseUrl
+    //service
     function MenuSearchService($http, BaseUrl) {
         var service = this;
         service.getMatchedMenuItems = function (input) {
