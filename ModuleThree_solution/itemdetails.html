@@ -1,0 +1,15 @@
+<table ng-show="controller.found !=null">
+    <th>Short Name : </th>
+    <th>Name : </th>
+    <th>Description : </th>
+    <tr ng-repeat="item in controller.found">
+        <td>{{item.short_name}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>
+            <input type="button" value="Don't want this one!" ng-click="controller.removeItem($index);"> </td>
+    </tr>
+</table>
+<div>
+    <error-directive></error-directive>
+</div>

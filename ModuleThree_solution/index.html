@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
+
+<head>
+    <title>Search Menu Item Description using resturant Server REST API</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 3: Search Menu Item Description using resturant Server REST API">
+    <meta name="keywords" content="HTML, AngularJs, CSS, Bootstrap">
+    <meta name="author" content="Yogesh Ghimire">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="javascript/app.js"></script>
+</head>
+
+<body class="container" ng-controller="NarrowItDownController  as searchController">
+    <input type="text" placeholder="Enter item" ng-model="searchController.itemSearch">
+    <input type="button" class="btn btn_primary" value="Narrow It Down For me!" ng-click="searchController.narrowItDown(searchController.itemSearch);">
+    <div>
+        <found-items search-controller="searchController"></found-items>
+    </div>
+</body>
+
+</html>

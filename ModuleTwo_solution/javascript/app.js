@@ -34,7 +34,7 @@
                 alreadyBoughtItem.push(removedItem);
             }
             if (buyItem.length === 0) {
-                throw Error("Nothing to buy!")
+                throw Error("Everything is bought!")
             }
         }
         service.boughtItems = function () {
