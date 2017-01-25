@@ -1,27 +1,8 @@
 #title {
-    text-align: center;
-    font-family: Playfair;
     color: brown;
-}
-
-.lunchCheckerInputBox {
-    margin: 20px 0 20px 0;
-}
-
-.inputValidation_btn {
     text-align: center;
-    padding-bottom: 20px;
 }
 
-.section {
-    position: relative;
-    width: 45%;
-    margin: 0 auto;
-}
-
-#message {
-    text-align: center;
-    font-family: Display;
-    font-size: 1.3em;
-    color: chocolate;
+#hint {
+    color: green;
 }

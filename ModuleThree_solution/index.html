@@ -10,14 +10,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/app.css">
     <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="javascript/app.js"></script>
 </head>
 
 <body class="container" ng-controller="NarrowItDownController  as searchController">
-    <input type="text" placeholder="Enter item" ng-model="searchController.itemSearch">
-    <input type="button" class="btn btn_primary" value="Narrow It Down For me!" ng-click="searchController.narrowItDown(searchController.itemSearch);">
+    <h1 id="title">Narrow down your search item</h1>
+    <div class="form-group">
+        <input type="text" placeholder="Enter item" ng-model="searchController.itemSearch" class="form-control"> </div>
+    <input type="button" class="btn btn-primary" value="Narrow It Down For me!" ng-click="searchController.narrowItDown(searchController.itemSearch);"> 
+    <span ng-hide="searchController.clicked" id="hint">(Hint: Enter menu item, for example: chicken)</span>
+   
     <div>
         <found-items found="searchController.found" remove-item="searchController.removeItem(index)"></found-items>
     </div>

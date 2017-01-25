@@ -39,6 +39,7 @@
         var controller = this;
         var service = MenuSearchService;
         controller.narrowItDown = function (input) {
+            controller.clicked = true;
             controller.found = null;
             controller.errorMessage = "";
             if (input === "" || input === null || input === undefined) {
